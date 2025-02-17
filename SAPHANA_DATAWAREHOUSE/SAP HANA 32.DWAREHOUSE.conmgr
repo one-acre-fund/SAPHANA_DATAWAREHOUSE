@@ -5,12 +5,12 @@
   DTS:CreationName="ODBC">
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectionString="uid=DWAREHOUSE;Dsn=SAP HANA 32;servernode={hana.oneacrefund.org:30015};">
+      DTS:ConnectionString="uid=DWAREHOUSE;Dsn=SAP HANA 32;servernode={mabenda.oafvpn.org:30015};">
       <DTS:Password
         DTS:Name="pwd"
         Sensitive="1"
-        p4:Salt="HFMQVt6asw=="
-        p4:IV="Db7nzjybiyI=" xmlns:p4="www.microsoft.com/SqlServer/SSIS">vwbUAfB9msIo0ZcK30UmVxzRA2wTJT7KCmiPjJ5vZ7Y2LcSvXtvjmtSy8twLEEWfCgiXdmTWhz5A9lhN/uWAJwFSSVxK+Cv1+d1TXGZCsSbMBXiAzhXuauCYCIxXUiahMLVMmvAzEQBHziLh90mSozSAxfstjDCS</DTS:Password>
+        p4:Salt="gQwwVo8mPA=="
+        p4:IV="loNH4niIVEs=" xmlns:p4="www.microsoft.com/SqlServer/SSIS">QqyOaV5DhjdIp0aOfguqdPVvxNNYKMSlG1j54qjb0TbbtJ3KPs7+ox+oFqbEiF8BXZm6N7gEqhTypXgvttONbNvInUu0kIZLVOCamPygk1w1EH/KuAzaycMI8L2saVyWqddpYxJOZ7hi5GF223Yskc04Wa/9s6Fz</DTS:Password>
     </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>
