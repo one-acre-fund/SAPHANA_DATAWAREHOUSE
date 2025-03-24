@@ -5,6 +5,12 @@
   DTS:CreationName="ODBC">
   <DTS:ObjectData>
     <DTS:ConnectionManager
-      DTS:ConnectionString="uid=DWAREHOUSE;Dsn=SAP HANA 32;servernode={mabenda.oaneacrefund.org:30015};" />
+      DTS:ConnectionString="uid=DWAREHOUSE;Dsn=SAP HANA 32;servernode={wimbi.oneacrefund.org:30015};">
+      <DTS:Password
+        DTS:Name="pwd"
+        Sensitive="1"
+        p4:Salt="ptDK3MZ7aw=="
+        p4:IV="ngR2p6Nd/XY=" xmlns:p4="www.microsoft.com/SqlServer/SSIS">VGPky8H7cZq3pibhCK8WZ83b+LMBYGr/BxoMwrgJUJZCuegQQxFi5wfW/by+NlfBcg1q9C04jGbGg9YVOfl6qAfH4dhsJX/tH2hMpZWZTHBSrdGyqKl6la4k8+Z4VEh3YRpr5Q/FT1tf4LQ5asNqZDTZ6ZoFUgMkFXiHj7zUMAg=</DTS:Password>
+    </DTS:ConnectionManager>
   </DTS:ObjectData>
 </DTS:ConnectionManager>
