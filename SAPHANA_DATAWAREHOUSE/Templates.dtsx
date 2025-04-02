@@ -12,8 +12,8 @@
   DTS:ObjectName="Templates"
   DTS:PackageType="5"
   DTS:ProtectionLevel="2"
-  DTS:VersionBuild="13"
-  DTS:VersionGUID="{430FEEAB-DB3A-46B4-B663-EB7BCD753EB4}">
+  DTS:VersionBuild="15"
+  DTS:VersionGUID="{EF2D4CB1-C60D-4030-9E4F-014AB9211214}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -11096,6 +11096,205 @@ and countryid = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\Template\Congo DRC"
+              componentClassID="Attunity.SSISODBCSrc"
+              description="ODBC Source"
+              name="Congo DRC"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of the table to be fetched."
+                  expressionType="Notify"
+                  name="TableName"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows fetched per batch."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines the chunk size allocation for LOB columns"
+                  expressionType="Notify"
+                  name="LobChunkSize">32768</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines how the component exposes CHAR columns. If False, CHAR columns are exposed as (multi-)byte strings (DT_STR), if True, CHAR columns are exposed as wide strings (DT_WSTR)"
+                  expressionType="Notify"
+                  name="ExposeCharColumnsAsUnicode">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds to wait for an SQL statement to execute before returning to the application."
+                  expressionType="Notify"
+                  name="StatementTimeout">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The code page to use when code page information is unavailable from the data source."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="The method used for fetching data."
+                  expressionType="Notify"
+                  name="FetchMethod">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="The ODBC C data type for binding numeric data."
+                  expressionType="Notify"
+                  name="BindNumericAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines how the component would bind columns of (multi)-byte string types (i.e., SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). The options are: Unicode (SQL_C_WCHAR) and ANSI (SQL_C_CHAR)."
+                  expressionType="Notify"
+                  name="BindCharColumnsAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The mode used to access the database."
+                  expressionType="Notify"
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Template\Congo DRC.Connections[ODBCConnection]"
+                  description="The ODBC runtime connection used to access the database."
+                  name="ODBCConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Template\Congo DRC.Outputs[ODBC Source Output]"
+                  errorRowDisposition="FailComponent"
+                  name="ODBC Source Output"
+                  truncationRowDisposition="FailComponent">
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </output>
+                <output
+                  refId="Package\Template\Congo DRC.Outputs[ODBC Source Error Output]"
+                  isErrorOut="true"
+                  name="ODBC Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Template\Congo DRC.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Template\Congo DRC.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Template\Congo DRC.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Template\Congo DRC.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Template\DRC"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="DRC"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Template\DRC.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Template\DRC.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Template\DRC.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Template\DRC.Outputs[Derived Column Output].Columns[CountryCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="3"
+                      lineageId="Package\Template\DRC.Outputs[Derived Column Output].Columns[CountryCode]"
+                      name="CountryCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"DRC"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"DRC"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Template\DRC.Outputs[Derived Column Output].Columns[CountryId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Template\DRC.Outputs[Derived Column Output].Columns[CountryId]"
+                      name="CountryId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">17</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">17</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Template\DRC.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Template\DRC.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Template\DRC.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Template\DRC.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Template\DRC.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Template\DRC.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Template\ETH"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -11693,6 +11892,109 @@ and countryid = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\Template\Netherlands"
+              componentClassID="Attunity.SSISODBCSrc"
+              description="ODBC Source"
+              name="Netherlands"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of the table to be fetched."
+                  expressionType="Notify"
+                  name="TableName"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows fetched per batch."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines the chunk size allocation for LOB columns"
+                  expressionType="Notify"
+                  name="LobChunkSize">32768</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines how the component exposes CHAR columns. If False, CHAR columns are exposed as (multi-)byte strings (DT_STR), if True, CHAR columns are exposed as wide strings (DT_WSTR)"
+                  expressionType="Notify"
+                  name="ExposeCharColumnsAsUnicode">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds to wait for an SQL statement to execute before returning to the application."
+                  expressionType="Notify"
+                  name="StatementTimeout">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The code page to use when code page information is unavailable from the data source."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="The method used for fetching data."
+                  expressionType="Notify"
+                  name="FetchMethod">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="The ODBC C data type for binding numeric data."
+                  expressionType="Notify"
+                  name="BindNumericAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines how the component would bind columns of (multi)-byte string types (i.e., SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). The options are: Unicode (SQL_C_WCHAR) and ANSI (SQL_C_CHAR)."
+                  expressionType="Notify"
+                  name="BindCharColumnsAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The mode used to access the database."
+                  expressionType="Notify"
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Template\Netherlands.Connections[ODBCConnection]"
+                  description="The ODBC runtime connection used to access the database."
+                  name="ODBCConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Template\Netherlands.Outputs[ODBC Source Output]"
+                  errorRowDisposition="FailComponent"
+                  name="ODBC Source Output"
+                  truncationRowDisposition="FailComponent">
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </output>
+                <output
+                  refId="Package\Template\Netherlands.Outputs[ODBC Source Error Output]"
+                  isErrorOut="true"
+                  name="ODBC Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Template\Netherlands.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Template\Netherlands.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Template\Netherlands.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Template\Netherlands.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Template\NG"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -11884,6 +12186,102 @@ and countryid = ?</property>
                       refId="Package\Template\Nigeria.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
                       lineageId="Package\Template\Nigeria.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Template\NL"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="NL"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Template\NL.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Template\NL.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Template\NL.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Template\NL.Outputs[Derived Column Output].Columns[CountryCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="2"
+                      lineageId="Package\Template\NL.Outputs[Derived Column Output].Columns[CountryCode]"
+                      name="CountryCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"NL"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"NL"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Template\NL.Outputs[Derived Column Output].Columns[CountryId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Template\NL.Outputs[Derived Column Output].Columns[CountryId]"
+                      name="CountryId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">18</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">18</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Template\NL.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Template\NL.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Template\NL.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Template\NL.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Template\NL.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Template\NL.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -12887,6 +13285,205 @@ and countryid = ?</property>
               </outputs>
             </component>
             <component
+              refId="Package\Template\UK"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="UK"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Template\UK.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Template\UK.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Template\UK.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Template\UK.Outputs[Derived Column Output].Columns[CountryCode]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      length="2"
+                      lineageId="Package\Template\UK.Outputs[Derived Column Output].Columns[CountryCode]"
+                      name="CountryCode"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">"UK"</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">"UK"</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Template\UK.Outputs[Derived Column Output].Columns[CountryId]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Template\UK.Outputs[Derived Column Output].Columns[CountryId]"
+                      name="CountryId"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">19</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">19</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Template\UK.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Template\UK.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Template\UK.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Template\UK.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Template\UK.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Template\UK.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Template\United Kingdom"
+              componentClassID="Attunity.SSISODBCSrc"
+              description="ODBC Source"
+              name="United Kingdom"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="The name of the table to be fetched."
+                  expressionType="Notify"
+                  name="TableName"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor, Microsoft.DataTransformationServices.Controls, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the number of rows fetched per batch."
+                  expressionType="Notify"
+                  name="BatchSize">1000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines the chunk size allocation for LOB columns"
+                  expressionType="Notify"
+                  name="LobChunkSize">32768</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines how the component exposes CHAR columns. If False, CHAR columns are exposed as (multi-)byte strings (DT_STR), if True, CHAR columns are exposed as wide strings (DT_WSTR)"
+                  expressionType="Notify"
+                  name="ExposeCharColumnsAsUnicode">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds to wait for an SQL statement to execute before returning to the application."
+                  expressionType="Notify"
+                  name="StatementTimeout">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The code page to use when code page information is unavailable from the data source."
+                  expressionType="Notify"
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Int32"
+                  description="The method used for fetching data."
+                  expressionType="Notify"
+                  name="FetchMethod">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="The ODBC C data type for binding numeric data."
+                  expressionType="Notify"
+                  name="BindNumericAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Determines how the component would bind columns of (multi)-byte string types (i.e., SQL_CHAR, SQL_VARCHAR, SQL_LONGVARCHAR). The options are: Unicode (SQL_C_WCHAR) and ANSI (SQL_C_CHAR)."
+                  expressionType="Notify"
+                  name="BindCharColumnsAs">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="The mode used to access the database."
+                  expressionType="Notify"
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Template\United Kingdom.Connections[ODBCConnection]"
+                  description="The ODBC runtime connection used to access the database."
+                  name="ODBCConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Template\United Kingdom.Outputs[ODBC Source Output]"
+                  errorRowDisposition="FailComponent"
+                  name="ODBC Source Output"
+                  truncationRowDisposition="FailComponent">
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </output>
+                <output
+                  refId="Package\Template\United Kingdom.Outputs[ODBC Source Error Output]"
+                  isErrorOut="true"
+                  name="ODBC Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Template\United Kingdom.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Template\United Kingdom.Outputs[ODBC Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Template\United Kingdom.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Template\United Kingdom.Outputs[ODBC Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Template\US"
               componentClassID="Microsoft.DerivedColumn"
               contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
@@ -13346,6 +13943,21 @@ and countryid = ?</property>
               endId="Package\Template\SRV.Inputs[Derived Column Input]"
               name="ODBC Source Output"
               startId="Package\Template\Rwanda SRV.Outputs[ODBC Source Output]" />
+            <path
+              refId="Package\Template.Paths[ODBC Source Output12]"
+              endId="Package\Template\NL.Inputs[Derived Column Input]"
+              name="ODBC Source Output"
+              startId="Package\Template\Netherlands.Outputs[ODBC Source Output]" />
+            <path
+              refId="Package\Template.Paths[ODBC Source Output13]"
+              endId="Package\Template\UK.Inputs[Derived Column Input]"
+              name="ODBC Source Output"
+              startId="Package\Template\United Kingdom.Outputs[ODBC Source Output]" />
+            <path
+              refId="Package\Template.Paths[ODBC Source Output14]"
+              endId="Package\Template\DRC.Inputs[Derived Column Input]"
+              name="ODBC Source Output"
+              startId="Package\Template\Congo DRC.Outputs[ODBC Source Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -15035,116 +15647,102 @@ and countryid = ?</property>
         <NodeLayout
           Size="97,42"
           Id="Package\Template\RW"
-          TopLeft="372,107.5" />
+          TopLeft="1595,107.5" />
         <NodeLayout
           Size="110,42"
           Id="Package\Template\Kenya"
-          TopLeft="190.5,5.5" />
-        <NodeLayout
-          Size="93,42"
-          Id="Package\Template\ZA"
-          TopLeft="1259,107.5" />
-        <NodeLayout
-          Size="99,42"
-          Id="Package\Template\MW"
-          TopLeft="1081,107.5" />
-        <NodeLayout
-          Size="101,42"
-          Id="Package\Template\ETH"
-          TopLeft="903,107.5" />
-        <NodeLayout
-          Size="118,42"
-          Id="Package\Template\Uganda"
-          TopLeft="715.5,5.49999999999989" />
-        <NodeLayout
-          Size="94,42"
-          Id="Package\Template\KE"
-          TopLeft="198.5,107.5" />
-        <NodeLayout
-          Size="114,42"
-          Id="Package\Template\Tubura"
-          TopLeft="540.5,5.49999999999989" />
-        <NodeLayout
-          Size="114,42"
-          Id="Package\Template\Nigeria"
-          TopLeft="1424.5,5.49999999999977" />
-        <NodeLayout
-          Size="102,42"
-          Id="Package\Template\USA"
-          TopLeft="1794,7" />
-        <NodeLayout
-          Size="113,42"
-          Id="Package\Template\Malawi"
-          TopLeft="1074,5.49999999999989" />
-        <NodeLayout
-          Size="117,42"
-          Id="Package\Template\Burundi"
-          TopLeft="1599,5.49999999999977" />
-        <NodeLayout
-          Size="95,42"
-          Id="Package\Template\UG"
-          TopLeft="727,107.5" />
-        <NodeLayout
-          Size="123,42"
-          Id="Package\Template\RW-TBR"
-          TopLeft="536,107.5" />
-        <NodeLayout
-          Size="116,42"
-          Id="Package\Template\Zambia"
-          TopLeft="1247.5,5.49999999999977" />
-        <NodeLayout
-          Size="95,42"
-          Id="Package\Template\NG"
-          TopLeft="1434,107.5" />
-        <NodeLayout
-          Size="119,42"
-          Id="Package\Template\Ethiopia"
-          TopLeft="894,5.49999999999989" />
-        <NodeLayout
-          Size="119,42"
-          Id="Package\Template\Rwanda"
-          TopLeft="361,5.49999999999989" />
+          TopLeft="5.5,5.5" />
         <NodeLayout
           Size="94,42"
           Id="Package\Template\US"
-          TopLeft="1795.5,97.5" />
+          TopLeft="1245.5,107.5" />
         <NodeLayout
-          Size="124,42"
-          Id="Package\Template\Tanzania"
-          TopLeft="5.5,5.5" />
+          Size="99,42"
+          Id="Package\Template\MW"
+          TopLeft="722,107.5" />
         <NodeLayout
-          Size="89,42"
-          Id="Package\Template\BI"
-          TopLeft="1613,107.5" />
+          Size="101,42"
+          Id="Package\Template\ETH"
+          TopLeft="1413,107.5" />
         <NodeLayout
           Size="92,42"
           Id="Package\Template\TZ"
-          TopLeft="21.5,107.5" />
+          TopLeft="192.5,107.5" />
+        <NodeLayout
+          Size="124,42"
+          Id="Package\Template\Tanzania"
+          TopLeft="176.5,5.5" />
+        <NodeLayout
+          Size="94,42"
+          Id="Package\Template\KE"
+          TopLeft="13.5,107.5" />
+        <NodeLayout
+          Size="102,42"
+          Id="Package\Template\SRV"
+          TopLeft="1785.5,107.5" />
+        <NodeLayout
+          Size="114,42"
+          Id="Package\Template\Nigeria"
+          TopLeft="361.5,5.49999999999989" />
+        <NodeLayout
+          Size="118,42"
+          Id="Package\Template\Uganda"
+          TopLeft="536.5,5.49999999999989" />
+        <NodeLayout
+          Size="113,42"
+          Id="Package\Template\Malawi"
+          TopLeft="715,5.49999999999989" />
+        <NodeLayout
+          Size="117,42"
+          Id="Package\Template\Burundi"
+          TopLeft="889,5.49999999999989" />
+        <NodeLayout
+          Size="114,42"
+          Id="Package\Template\Tubura"
+          TopLeft="1066.5,5.49999999999989" />
+        <NodeLayout
+          Size="123,42"
+          Id="Package\Template\RW-TBR"
+          TopLeft="1062,107.5" />
+        <NodeLayout
+          Size="93,42"
+          Id="Package\Template\ZA"
+          TopLeft="1981,107.5" />
+        <NodeLayout
+          Size="102,42"
+          Id="Package\Template\USA"
+          TopLeft="1241.5,5.49999999999977" />
+        <NodeLayout
+          Size="95,42"
+          Id="Package\Template\NG"
+          TopLeft="371,107.5" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Template\Ethiopia"
+          TopLeft="1404,5.49999999999977" />
+        <NodeLayout
+          Size="119,42"
+          Id="Package\Template\Rwanda"
+          TopLeft="1584,5.49999999999977" />
+        <NodeLayout
+          Size="95,42"
+          Id="Package\Template\UG"
+          TopLeft="548,107.5" />
+        <NodeLayout
+          Size="145,42"
+          Id="Package\Template\Rwanda SRV"
+          TopLeft="1764,5.49999999999977" />
+        <NodeLayout
+          Size="89,42"
+          Id="Package\Template\BI"
+          TopLeft="903,107.5" />
+        <NodeLayout
+          Size="116,42"
+          Id="Package\Template\Zambia"
+          TopLeft="1969.5,5.49999999999977" />
         <EdgeLayout
-          Id="Package\Template.Paths[ODBC Source Output1]"
-          TopLeft="245.5,47.5">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,60"
-              Start="0,0"
-              End="0,52.5">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,52.5" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Template.Paths[ODBC Source Output]"
-          TopLeft="67.5,47.5">
+          Id="Package\Template.Paths[ODBC Source Output11]"
+          TopLeft="1836.5,47.4999999999998">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15166,18 +15764,18 @@ and countryid = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Template.Paths[ODBC Source Output10]"
-          TopLeft="1843.75,49">
+          TopLeft="1292.5,47.4999999999998">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,48.5"
+              EndConnector="0,60"
               Start="0,0"
-              End="0,41">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,41" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -15188,7 +15786,7 @@ and countryid = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Template.Paths[ODBC Source Output9]"
-          TopLeft="1657.5,47.4999999999998">
+          TopLeft="947.5,47.4999999999999">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15210,7 +15808,7 @@ and countryid = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Template.Paths[ODBC Source Output8]"
-          TopLeft="1481.5,47.4999999999998">
+          TopLeft="418.5,47.4999999999999">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15232,7 +15830,7 @@ and countryid = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Template.Paths[ODBC Source Output7]"
-          TopLeft="1305.5,47.4999999999998">
+          TopLeft="2027.5,47.4999999999998">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15254,7 +15852,7 @@ and countryid = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Template.Paths[ODBC Source Output6]"
-          TopLeft="1130.5,47.4999999999999">
+          TopLeft="771.5,47.4999999999999">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15276,7 +15874,7 @@ and countryid = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Template.Paths[ODBC Source Output5]"
-          TopLeft="953.5,47.4999999999999">
+          TopLeft="1463.5,47.4999999999998">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15298,7 +15896,7 @@ and countryid = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Template.Paths[ODBC Source Output4]"
-          TopLeft="774.5,47.4999999999999">
+          TopLeft="595.5,47.4999999999999">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15320,7 +15918,7 @@ and countryid = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Template.Paths[ODBC Source Output3]"
-          TopLeft="597.5,47.4999999999999">
+          TopLeft="1123.5,47.4999999999999">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15342,7 +15940,51 @@ and countryid = ?</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Template.Paths[ODBC Source Output2]"
-          TopLeft="420.5,47.4999999999999">
+          TopLeft="1643.5,47.4999999999998">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Template.Paths[ODBC Source Output1]"
+          TopLeft="60.5,47.5">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Template.Paths[ODBC Source Output]"
+          TopLeft="238.5,47.5">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -15363,39 +16005,87 @@ and countryid = ?</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <NodeLayout
-          Size="145,42"
-          Id="Package\Template\Rwanda SRV"
-          TopLeft="1956,5.49999999999977" />
+          Size="93,42"
+          Id="Package\Template\NL"
+          TopLeft="2169,107.5" />
         <NodeLayout
-          Size="102,42"
-          Id="Package\Template\SRV"
-          TopLeft="1957.5,95.9999999999998" />
+          Size="94,42"
+          Id="Package\Template\UK"
+          TopLeft="2376.5,107.5" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Template\Netherlands"
+          TopLeft="2146.5,5.49999999999966" />
         <EdgeLayout
-          Id="Package\Template.Paths[ODBC Source Output11]"
-          TopLeft="2028.5,47.4999999999998">
+          Id="Package\Template.Paths[ODBC Source Output12]"
+          TopLeft="2215.5,47.4999999999997">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-20,48.5"
+              EndConnector="0,60"
               Start="0,0"
-              End="-20,41">
+              End="0,52.5">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,20.25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.25"
-                    Point2="0,24.25"
-                    Point3="-4,24.25" />
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="157,42"
+          Id="Package\Template\United Kingdom"
+          TopLeft="2345,5.49999999999966" />
+        <EdgeLayout
+          Id="Package\Template.Paths[ODBC Source Output13]"
+          TopLeft="2423.5,47.4999999999997">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-16,24.25" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-16,24.25"
-                    Point2="-20,24.25"
-                    Point3="-20,28.25" />
+                    End="0,52.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="103,42"
+          Id="Package\Template\DRC"
+          TopLeft="2580,107.5" />
+        <NodeLayout
+          Size="138,42"
+          Id="Package\Template\Congo DRC"
+          TopLeft="2562.5,5.49999999999966" />
+        <EdgeLayout
+          Id="Package\Template.Paths[ODBC Source Output14]"
+          TopLeft="2631.5,47.4999999999997">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,60"
+              Start="0,0"
+              End="0,52.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
                   <mssgle:LineSegment
-                    End="-20,41" />
+                    End="0,52.5" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
