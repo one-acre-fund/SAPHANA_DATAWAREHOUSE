@@ -15,7 +15,7 @@
       <SSIS:Project SSIS:ProtectionLevel="EncryptSensitiveWithPassword" xmlns:SSIS="www.microsoft.com/SqlServer/SSIS">
         <SSIS:Properties>
           <SSIS:Property SSIS:Name="ID">{ef536ec7-a780-4e28-af2d-db8c670c35f2}</SSIS:Property>
-          <SSIS:Property SSIS:Name="Name">SAPHANA_DATAWAREHOUSE</SSIS:Property>
+          <SSIS:Property SSIS:Name="Name">SAPHANA_DATAWAREHOUSE_NEWDB</SSIS:Property>
           <SSIS:Property SSIS:Name="VersionMajor">0</SSIS:Property>
           <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
           <SSIS:Property SSIS:Name="VersionBuild">0</SSIS:Property>
@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">UZITO-PC</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="dkc2eYkp/Q==" SSIS:IV="y4x0SEoc3ho=">ESxJHgLhLKuhr5bGpipfwdaDt7LpKgKV+xNDZKPFxGk2jRNN78zRyRD+l+EbURxyJkSj9mooke2eHtQWsbDpK60Jr29k4b7JI77QNFaeV5h33r9ABJr1E8CwhR5Bo/cQ6XsZ7AbQisU4ShbSQpO2awPAaUMrdipHEyYQFy7+WHsZ6PotyS6/lg==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1" SSIS:Salt="/HwJg/IYtQ==" SSIS:IV="8/6+XRjvbIk=">8OnzBrOxzscRZ+4JdvPGZfsbNymm+0l/xwl6maVZKXZSYpa8SEGDHuaoEzM9mQXKtZYAW5KaHUYMkFfJeiN9912w8bnU3Y3bWFqkWB8vsEkQzFJV/GzlFl9Ef9sw3ERoy5LQnZ5fQ+c1YqKiPsS3qq5Nelz2zba+kI8yPgud2nc6UROmc50oEQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
